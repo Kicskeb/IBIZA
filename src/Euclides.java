@@ -2,19 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Euclides {
-    public static void Simple(int a, int b) {
+
+    public static long Simple(long a, long b) {
         while (true) {
-            int tmp = a % b;
+            var tmp = a % b;
             a = b;
             b = tmp;
             if (tmp == 0) {
-                System.out.println(a);
-                break;
+                return a;
             }
         }
     }
 
     public static List<Long> Extended(long a, long b) {
+
         long[] x = new long[] {1, 0};
         long[] y = new long[] {0, 1};
         long ogA = a;

@@ -1,14 +1,16 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-//        Euclides.Simple(120, 60);
-//        System.out.println(Euclides.Extended(845, 68));
 
-//        System.out.println(FastExponential.DoIt(15, 111, 103));
-
-        Rsa Test = new Rsa();
+        Rsa Test = new Rsa(3061, 3559);
         var encrypted = Test.Encrypt(128);
         var decrypted = Test.Decrypt(encrypted);
         System.out.println(decrypted);
+
+//        System.out.println(Euclides.Simple());
+//        System.out.println(Euclides.Extended());
+//        System.out.println(FastExponential.Calculate());
+//        System.out.println(ChineseRemainder.Calculate());
+//        System.out.println(MillerRabin.IsPrime());
 
     }
 }

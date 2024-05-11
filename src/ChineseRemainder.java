@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ChineseRemainder {
+
     public static long Calculate(long[] num, long[] rem) {
+
         long returnResult = 0;
         var M = Arrays.stream(rem).reduce((x, y) -> x * y).getAsLong();
         var Mi = Arrays.stream(rem).map(x -> M / x).toArray();
@@ -16,7 +18,5 @@ public class ChineseRemainder {
             returnResult += num[i] * Mi[i] * Yi.get(i);
         }
         return returnResult;
-
-//        String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex();
     }
 }

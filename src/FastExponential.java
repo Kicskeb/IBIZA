@@ -1,7 +1,9 @@
 public class FastExponential {
-    public static long DoIt(long base, long index, long modulo) throws Exception {
+
+    public static long Calculate(long base, long index, long modulo) throws Exception {
+
         if (index < 1 || base < 0 || modulo < 0)
-            throw new Exception("Rossz szam " + base + ' ' + index + ' ' + modulo);
+            throw new Exception("Rossz szam %s %s %s".formatted(base, index, modulo));
 
         long result = 1;
         for (var i = 0; i < 64; i++) {

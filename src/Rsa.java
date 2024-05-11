@@ -2,7 +2,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Rsa {
-    public Rsa() throws Exception {
+
+    public long p;
+    public long q;
+    public long n;
+    public long pfiN;
+    public long e;
+    public long d;
+
+    public Rsa(long p, long q) throws Exception {
+        this.p = p;
+        this.q = q;
+        this.n = p*q;
+        this.pfiN = (p-1) * (q-1);
+
         Random rand = new Random();
         while (true) {
             long e = rand.nextLong(2, pfiN);
@@ -15,20 +28,12 @@ public class Rsa {
         }
     }
 
-    public long p = 3061;
-    public long q = 3559;
-    public long n = p*q;
-    public int m = 128;
-    public long pfiN = (p-1) * (q-1);
-    public long e;
-    public long d;
     public long Encrypt(long msg) throws Exception {
-        return FastExponential.DoIt(msg, e, n);
+        return FastExponential.Calculate(msg, e, n);
     }
     public long Decrypt(long msg) throws Exception {
-//        return FastExponential.DoIt(msg, d, n);
-        var c1 = FastExponential.DoIt(msg, d%(p-1), p);
-        var c2 = FastExponential.DoIt(msg, d%(q-1), q);
+        var c1 = FastExponential.Calculate(msg, d%(p-1), p);
+        var c2 = FastExponential.Calculate(msg, d%(q-1), q);
         return ChineseRemainder.Calculate(new long[]{c1, c2}, new long[]{p, q});
 
     }
