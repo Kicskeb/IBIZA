@@ -10,7 +10,7 @@ public class Rsa {
     public long e;
     public long d;
 
-    public Rsa(long p, long q) throws Exception {
+    public Rsa(long p, long q) {
         this.p = p;
         this.q = q;
         this.n = p*q;
